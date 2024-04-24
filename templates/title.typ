@@ -74,7 +74,7 @@
         }
     ][
         #set align(left)
-        #show heading: set text(size: 2em, font: font.HYSH)
+        #show heading: set text(size: 1.33em, font: font.HYSH)
 
         #heading(level: 1, title) <title>
         #line(length: 18em, stroke: colors.primary.transparentize(50%))
