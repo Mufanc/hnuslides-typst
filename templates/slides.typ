@@ -18,7 +18,7 @@
                 #header
             ][
                 #hline
-                #right-polygon
+                #hide(right-polygon)
             ]
             #pad(top: -measure(hline).height, right-polygon)
         ]
