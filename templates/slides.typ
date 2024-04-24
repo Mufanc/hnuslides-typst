@@ -27,6 +27,7 @@
     hide(header)
     v(0.5em)
     parbreak()
+    box()
 
     content
 
