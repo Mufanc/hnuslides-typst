@@ -73,13 +73,29 @@
             ))
         }
     ][
-        #set align(left)
-        #show heading: set text(size: 1.33em, font: font.HYSH)
+        #let no-desc = description.len() == 0
 
-        #heading(level: 1, title) <title>
-        #line(length: 18em, stroke: colors.primary.transparentize(50%))
-        #v(-0.8em)
-        #text(font: font.FZKT, fill: colors.secondary.transparentize(25%), description)
+        #set align(if no-desc { center } else { left })
+        #show heading: set text(
+            size: if no-desc { 1.8em } else { 1.33em }, 
+            font: font.HYSH
+        )
+
+        #let header = heading(level: 1, title) 
+        #let line-color = colors.primary.transparentize(50%)
+
+        #header <title>
+
+        #if no-desc {
+            v(-0.5em)
+            context {
+                line(length: measure(header).width + 2em, stroke: (paint: line-color, dash: "dashed"))
+            }
+        } else {
+            line(length: 18em, stroke: line-color)
+            v(-0.8em)
+            text(font: font.FZKT, fill: colors.secondary.transparentize(25%), description)
+        }
     ]
 
     pagebreak()
