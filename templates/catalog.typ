@@ -18,14 +18,13 @@
 
         // Typst 似乎尚不支持透明渐变，暂时使用与背景接近的颜色 dirty fix
         // 待 https://github.com/typst/typst/issues/2546 解决后，还需要将括号透明度改为 50%
-        let background-color = rgb(235, 231, 222)
         let paren-color = color.mix(
-            colors.primary, background-color,
+            colors.primary, colors.background,
             space: rgb  // 在 rgb 空间混合 primary-color 与背景色来模拟透明度
         )
 
         let steps = 5
-        let border-color = gradient.linear(paren-color, ..(background-color,) * (steps - 2), paren-color).sharp(steps)
+        let border-color = gradient.linear(paren-color, ..(colors.background,) * (steps - 2), paren-color).sharp(steps)
 
         let number = pad(top: -0.2em, text(font: font.HYZK, fill: colors.primary, index))
 
